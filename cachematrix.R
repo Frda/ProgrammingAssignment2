@@ -14,6 +14,9 @@
 #4.set_InvM  - This function is uesd by an EXTERNAL function cacheSolve to calculate the Inverse of the Matrix x. 
 # InvM is assinged a value based on the value Set_InvM returns.
 
+
+
+
 #cacheSolve function.
 #* Description *#
 #  This function is used to calculate the inverse of a supplied special matrix created by the makeCacheMatrix function.
@@ -101,3 +104,30 @@ cacheSolve <- function(x,...)
 
 
 
+#example:
+
+#first run no inverse created
+
+#> t<-matrix(c(1,2,3,4),2,2)                     #create matrix t
+#> t                                             # output from matrix t             
+#     [,1] [,2]
+#[1,]    1    3
+#[2,]    2    4
+#> m <- makeCacheMatrix(t)                      #  to special makecacheMatrix use matrix t as argument for makecacheMatrix                              
+#> 
+#j<- cacheSolve(m)                              #evaluate inverse of m                   
+#> j                                            #  results of m        
+#     [,1] [,2]
+#[1,]   -2  1.5
+#[2,]    1 -0.5
+
+#second run inverse already calculated
+
+# if j<- cacheSolve(m)  is run again without any changes made
+#> j<- cacheSolve(m)
+#getting cached data     # this indicates that the inverse was not recalulated but retrived from the cache
+#> j
+#     [,1] [,2]
+#[1,]   -2  1.5
+#[2,]    1 -0.5
+#> 
