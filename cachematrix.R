@@ -8,16 +8,16 @@
 #2 InvM - This value returns the inverse of value of the matrix passed to the function as x
 #  sub functions 
 #1. set_Matrix - This funciton is used to set the value of the matrix for which the inverse is desired. It takes the argument y  and assings to the x variable 
-#   outside the set function by using the "<<-" operator. THis allows other functions within the Create_Matrix function to access the value of a new matrix.
+#   outside the set function by using the "<<-" operator. THis allows other functions within the makeCacheMatrix function to access the value of a new matrix.
 #2.Get_Matrix - This function is used to retrive the value of the Matrix for which the inverse is desired by returning the value of x.
 #3.Get_InvM  -  This function is used to retrive the value of the inverse calcluated for the Matrix x. The function returns the value of InvM
-#4.set_InvM  - This function is uesd by an EXTERNAL function cacheInvers to calculate the Inverse of the Matrix x. 
+#4.set_InvM  - This function is uesd by an EXTERNAL function cacheSolve to calculate the Inverse of the Matrix x. 
 # InvM is assinged a value based on the value Set_InvM returns.
 
 #cacheSolve function.
 #* Description *#
 #  This function is used to calculate the inverse of a supplied special matrix created by the makeCacheMatrix function.
-#  The invers of the matrix is calculated by taking the returned value from makeCacheMatrix as an argument . 
+#  The inverse of the matrix is calculated by taking the returned value from makeCacheMatrix as an argument . 
 #  This function sets the inverse of the Matrix contained in the makeCacheMatrix by assining the results to the set_InvM function
 #  in the special Matrix
 #  Since the makecacheMatrix contains a list of functions, the cacheSolve function can access those functions by using $ modifer to change variables in makeCacheMatrix
@@ -30,7 +30,7 @@
 
 
 # using the out put from makeCacheMatrix as an argument for cacheSolve allows users to save time by not recalculating the inverse of a metrix if 
-# the value already exists. if a new inverse is calculated the new inverse will be displayed with an additional comment of getting cached data
+# the value already exists. If a new inverse is calculated the new inverse will be displayed with an additional comment of getting cached data
 
 
 
@@ -78,21 +78,21 @@ makeCacheMatrix <- function(x = numeric())
 cacheSolve <- function(x,...) 
 {
   
-          m <- x$Get_InvM()                                                         # check the contents of the Get_InvM and assing to m
+          m <- x$Get_InvM()                                     # check the contents of the Get_InvM and assing to m
           
-                    if(!is.null(m))                                                 # if m is not null inverse will not need to be recalcuated
-                    {                                                               #  return the value of inverse (m) and exit the function
+                    if(!is.null(m))                             # if m is not null inverse will not need to be recalcuated
+                    {                                           #  return the value of inverse (m) and exit the function
                                 message("getting cached data")
                                 return(m)
                     }
           
-          data <- x$Get_Matrix()                                                    # if value $Get_InvM is not null Get the store matrix $Get_Matrix
+          data <- x$Get_Matrix()                    # if value $Get_InvM is not null Get the store matrix $Get_Matrix
           
-          m <- solve(data, ...)                                                     # calculate the value of the inverse of the matrix and assing to m
+          m <- solve(data, ...)                     # calculate the value of the inverse of the matrix and assing to m
           
-          x$set_InvM(m)                                                             # set the inverse of the matrix to m by passing it on through $set_InvM 
+          x$set_InvM(m)                             # set the inverse of the matrix to m by passing it on through $set_InvM 
           
-          m                                                                         # retrun the value of inverse (m)
+          m                                         # retrun the value of inverse (m)
   
   
 }
