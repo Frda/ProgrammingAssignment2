@@ -41,7 +41,7 @@
 #eg. t <- makeCacheMatrix(matrix(c(1,2,3,4),2,2)); to reassing t use the following t$set_Matrix(matrix(c(1,2,3,4),2,2))
 
 
-makeCacheMatrix <- function(x = numeric()) 
+makeCacheMatrix <- function(x = matrix()) 
   
 {
           InvM <- NULL                                                    # Initialize Inverse Value to Null
