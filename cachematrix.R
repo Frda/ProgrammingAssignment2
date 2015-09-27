@@ -1,6 +1,6 @@
 #makeCacheMatrix
 #  This function is used to create a specialized matrix.
-#  The Store_Matrix function consists of a list of sub functions and Variables. 
+#  The makeCacheMatrix function consists of a list of sub functions and Variables. 
 #  See below for a list a description of sub functions and Values.
 
 #  Variables
